@@ -1,3 +1,3 @@
 variable "addresses" {
-    type = list(string)
+  type = list(string)
 }

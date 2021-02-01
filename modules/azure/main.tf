@@ -110,7 +110,7 @@ resource "azurerm_virtual_machine" "virtual_machine" {
     computer_name  = "azure-vm"
     admin_username = "azure"
     admin_password = "Passwword1234"
-    custom_data    = templatefile("${path.module}/templates/startup.sh",{ NAME = var.environment.name, BG_COLOR = var.environment.background_color })
+    custom_data    = templatefile("${path.module}/templates/startup.sh", { NAME = var.environment.name, BG_COLOR = var.environment.background_color })
   }
   os_profile_linux_config {
     disable_password_authentication = false

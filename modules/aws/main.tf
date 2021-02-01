@@ -3,7 +3,7 @@ data "aws_vpc" "default" {
 }
 
 module "instance_sg" {
-  source = "scottwinkler/sg/aws"
+  source = "terraform-in-action/sg/aws"
   vpc_id = data.aws_vpc.default.id
   ingress_rules = [
     {
@@ -14,7 +14,7 @@ module "instance_sg" {
 }
 
 module "iam_instance_profile" {
-  source  = "scottwinkler/iip/aws"
+  source  = "terraform-in-action/iip/aws"
   actions = ["logs:*", "ec2:DescribeInstances"]
 }
 

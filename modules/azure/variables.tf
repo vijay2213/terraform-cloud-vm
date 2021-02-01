@@ -1,11 +1,11 @@
 variable "location" {
-    default = "westus2"
-    type = string
+  default = "westus2"
+  type    = string
 }
 
 variable "environment" {
-    type = object({
-        name = string
-        background_color=string
-    })
+  type = object({
+    name             = string
+    background_color = string
+  })
 }

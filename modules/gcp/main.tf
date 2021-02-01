@@ -42,7 +42,7 @@ resource "google_compute_instance" "compute_instance" {
     }
   }
 
-  metadata_startup_script = templatefile("${path.module}/templates/startup.sh",{ NAME = var.environment.name, BG_COLOR = var.environment.background_color })
+  metadata_startup_script = templatefile("${path.module}/templates/startup.sh", { NAME = var.environment.name, BG_COLOR = var.environment.background_color })
 
   network_interface {
     network = "default"

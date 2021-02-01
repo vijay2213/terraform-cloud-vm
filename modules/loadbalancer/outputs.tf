@@ -1,3 +1,3 @@
 output "network_address" {
-    value = "localhost:5000"
+  value = "localhost:5000"
 }

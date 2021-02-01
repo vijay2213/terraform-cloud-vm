@@ -1,11 +1,11 @@
 variable "environment" {
-    type = object({
-        name = string
-        background_color=string
-    })
+  type = object({
+    name             = string
+    background_color = string
+  })
 }
 
 variable "ssh_keypair" {
-    default = null
-    type = string
+  default = null
+  type    = string
 }
