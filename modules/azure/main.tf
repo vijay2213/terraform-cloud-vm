@@ -20,7 +20,7 @@ resource "azurerm_subnet" "vm_subnet" {
   name                 = "vm-subnet"
   resource_group_name  = azurerm_resource_group.resource_group.name
   virtual_network_name = azurerm_virtual_network.virtual_network.name
-  address_prefix       = "172.16.0.0/24"
+  address_prefixes       = ["172.16.0.0/24"]
 }
 
 resource "azurerm_network_security_group" "vm_sg" {
@@ -53,7 +53,6 @@ resource "azurerm_network_interface" "network_interface" {
   name                      = "vm-nic"
   location                  = var.location
   resource_group_name       = azurerm_resource_group.resource_group.name
-  network_security_group_id = azurerm_network_security_group.vm_sg.id
 
   ip_configuration {
     name                          = "vm-IPConfiguration"
@@ -61,6 +60,11 @@ resource "azurerm_network_interface" "network_interface" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.public_ip.id
   }
+}
+
+resource "azurerm_network_interface_security_group_association" "network_interface" {
+  network_interface_id      = azurerm_network_interface.network_interface.id
+  network_security_group_id = azurerm_network_security_group.vm_sg.id
 }
 
 # Enable Boot Diagnostics
