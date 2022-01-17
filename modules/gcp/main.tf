@@ -6,7 +6,7 @@ resource "google_project_service" "enabled_service" {
   for_each = toset(local.services)
   service  = each.key
   provisioner "local-exec" {
-    command = "sleep 60"
+    command = "sleep 60 >./stdout.log 2>./stderr.log & echo \"sleeping in PID\" $!"
   }
   disable_on_destroy = false
 }
