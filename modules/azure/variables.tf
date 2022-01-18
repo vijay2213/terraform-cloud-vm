@@ -1,5 +1,5 @@
 variable "location" {
-  default = "westus2"
+  default = "westus3"
   type    = string
 }
 
